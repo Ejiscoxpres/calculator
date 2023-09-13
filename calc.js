@@ -36,5 +36,13 @@ class Calculator {
         this.currentOperand = ''
         this.previousOperand = ''
         this.operation = undefined
+        numberButtons.forEach(button => {
+            button.addEventListener('click', () => {
+              calculator.appendNumber(button.innerText)
+              calculator.updateDisplay()
+            })
+          })
       }
+      
 }
+
