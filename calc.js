@@ -36,7 +36,7 @@ class Calculator {
         this.currentOperand = ''
         this.previousOperand = ''
         this.operation = undefined
-        numberButtons.forEach(button => {
+        /*numberButtons.forEach(button => {
             button.addEventListener('click', () => {
               calculator.appendNumber(button.innerText)
               calculator.updateDisplay()
@@ -54,8 +54,9 @@ class Calculator {
               calculator.chooseOperation(button.innerText)
               calculator.updateDisplay()
             })
-          })
+          })*/
         }
+        /* the operation button*/
           chooseOperation(operation) {
             if (this.currentOperand === '') return
             if (this.previousOperand !== '') {
@@ -64,8 +65,39 @@ class Calculator {
             this.operation = operation
             this.previousOperand = this.currentOperand
             this.currentOperand = ''
+            equalsButton.addEventListener('click', button => {
+                calculator.compute()
+                calculator.updateDisplay()
+              })
           }
-      
+          
+      /* computational button*/
+      compute() {
+        let computation
+        const prev = parseFloat(this.previousOperand)
+        const current = parseFloat(this.currentOperand)
+        if (isNaN(prev) || isNaN(current)) return
+        switch (this.operation) {
+          case '+':
+            computation = prev + current
+            break
+          case '-':
+            computation = prev - current
+            break
+          case '*':
+            computation = prev * current
+            break
+          case '÷':
+            computation = prev / current
+            break
+          default:
+            return
+        }
+        this.currentOperand = computation
+        this.operation = undefined
+        this.previousOperand = ''
+      }
+    
       
       
 }
