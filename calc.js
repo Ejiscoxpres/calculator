@@ -42,7 +42,31 @@ class Calculator {
               calculator.updateDisplay()
             })
           })
+          
       }
+
+      appendNumber(number) {
+        if (number === '.' && this.currentOperand.includes('.')) return
+        this.currentOperand = this.currentOperand.toString() + number.toString()
+
+        operationButtons.forEach(button => {
+            button.addEventListener('click', () => {
+              calculator.chooseOperation(button.innerText)
+              calculator.updateDisplay()
+            })
+          })
+        }
+          chooseOperation(operation) {
+            if (this.currentOperand === '') return
+            if (this.previousOperand !== '') {
+              this.compute()
+            }
+            this.operation = operation
+            this.previousOperand = this.currentOperand
+            this.currentOperand = ''
+          }
+      
+      
       
 }
 
