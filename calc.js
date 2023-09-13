@@ -13,4 +13,28 @@ class Calculator {
       this.currentOperandTextElement = currentOperandTextElement
       this.clear()
     }
+    /* functions illustrations*/
+    clear() {
+    }
+    
+    delete() {
+    }
+    
+    appendNumber(number) {
+    }
+    
+    chooseOperation(operation) {
+    }
+    
+    compute() {
+    }
+    
+    updateDisplay() {
+    }   
+    /*this is a clear() function*/
+    clear() {
+        this.currentOperand = ''
+        this.previousOperand = ''
+        this.operation = undefined
+      }
 }
